@@ -1,5 +1,5 @@
 #include "include/catch.h"
-#include "../registry/ItemRegistry.h"
+#include "../engine/registry/ItemRegistry.h"
 
 TEST_CASE("Test adding basic items ", "[itemregistry]") {
     ItemRegistry *registry = new ItemRegistry();

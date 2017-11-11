@@ -1,5 +1,5 @@
 #include "include/catch.h"
-#include "../item/Item.h"
+#include "../engine/item/Item.h"
 
 
 TEST_CASE("Test basic item", "[item]") {
