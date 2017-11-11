@@ -10,7 +10,19 @@ int ItemRegistry::addItem(Item *item) {
 int ItemRegistry::addItem(int id, Item *item){
     // add item at explicit id
     //
-    /* log_info("Adding item: %s", item->toString()); */
-    /* items[id] = &item; */
+    LOG(DEBUG) << "Adding item: " << item;
+    items.insert(std::pair<int, Item>(id, *item));
     return id;
+}
+
+Item ItemRegistry::*getItem(int id) {
+    // return a deep copy
+}
+
+void ItemRegistry::dumpRegistry() {
+    //TODO - mask this behind debug flag
+    LOG(DEBUG) << "dumping ItemRegistry";
+    for (auto& x : items) {
+        LOG(DEBUG) << &x.second;
+    }
 }

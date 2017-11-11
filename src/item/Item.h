@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include "include/easylogging++.h"
 
 class Item {
     private:
