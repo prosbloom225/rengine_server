@@ -6,6 +6,7 @@
 #include "include/easylogging++.h"
 
 class Item {
+    // TODO - builder pattern
     private:
         std::string name;
 
