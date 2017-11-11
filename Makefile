@@ -6,7 +6,9 @@ SRCDIR=src
 OBJDIR=obj
 TARGET=bin/main
 SRCEXT=cpp
-RM=rm
+IGNORERM=TestMain.o
+RMARGS=-type f ! -name $(IGNORERM) -delete
+RM=find 
 
 SOURCES=$(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS=$(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
@@ -26,7 +28,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 clean:
 	@echo " Cleaning.. "
-	@echo " $(RM) -r $(OBJDIR) $(TARGET)"; $(RM) -r $(OBJDIR) $(TARGET)
+	@echo " $(RM) $(OBJDIR) $(TARGET) $(RMARGS)"; $(RM) $(OBJDIR) $(TARGET) $(RMARGS)
+
 
 test:
 	@echo "Testing.. "
