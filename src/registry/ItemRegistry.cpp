@@ -15,8 +15,11 @@ int ItemRegistry::addItem(int id, Item *item){
     return id;
 }
 
-Item ItemRegistry::*getItem(int id) {
+Item *ItemRegistry::getItem(int id) {
     // return a deep copy
+    Item *ret = items.at(id).copy();
+    LOG(DEBUG) << ret;
+    return ret;
 }
 
 void ItemRegistry::dumpRegistry() {

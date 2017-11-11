@@ -24,6 +24,9 @@ TEST_CASE("Test adding basic items ", "[itemregistry]") {
     registry->addItem(0, item1);
     registry->addItem(1, item2);
     /* registry->dumpRegistry(); */
+
+    Item *tmpItem1 = registry->getItem(0);
+    LOG(DEBUG) << tmpItem1;
     REQUIRE(0==0);
 }
 

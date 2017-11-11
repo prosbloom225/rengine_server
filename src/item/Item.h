@@ -7,14 +7,15 @@
 
 class Item {
     private:
-        std::string *name;
+        std::string name;
 
 
     public:
         Item(std::string const& itemName);
-        const char *toString(){ return name->c_str();};
+        const char *getName(){ return name.c_str();};
+        Item *copy();
         friend std::ostream& operator<<(std::ostream& out, const Item *item){
-            return out << "name(" << *item->name << ")";
+            return out << "name(" << item->name << ")";
         }
 
 };
