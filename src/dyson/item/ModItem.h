@@ -15,15 +15,32 @@ class ModItem : public Item {
         double getCVal(){ return cVal;};
 };
 
+
 class ModItem::Builder : public Item::Builder {
     protected:
+        std::string *name;
+        std::string *modName;
         double cVal;
+
     public:
-        /* static const constexpr double defaultCval = 0; */
+        static const constexpr char *defaultModName = "dyson";
+        static const constexpr double defaultCVal = 0.0;
 
-        Builder& setCval(double cVal) { this->cVal=cVal; return *this;}
+        Builder() : modName(new std::string(defaultModName)), name(new std::string(defaultName)), cVal(defaultCVal) { }
 
-        using Item::Builder::build;
+
+        // properties need to be overloaded else the builder returns the parent Item::Builder&
+        // TODO - could maybe get away with casting as the child Builder???
+        // Parent properties
+        Builder& setModName(std::string *modName) { this->modName = modName; return *this;}
+        Builder& setName(std::string *name) { this->name= name; return *this;}
+        Builder& setModName(const char *modName) { this->modName = new std::string(modName); return *this;}
+        Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
+
+
+        // Child properties
+        Builder& setCVal(double cVal) { this->cVal = cVal; return *this;}
+
         ModItem build() {
             return ModItem(*this->modName, *this->name, this->cVal);
         }
