@@ -37,6 +37,7 @@ flags = [
     '-x',
     'c++',
     '-I.',
+    '-I./src/main/c/',
     '-Wall',
     '-Wno-reorder',
     '-Wno-unused-variable',

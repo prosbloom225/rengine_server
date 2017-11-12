@@ -1,7 +1,7 @@
 #ifndef MODITEM_H
 #define MODITEM_H
 
-#include "src/engine/item/Item.h"
+#include "engine/item/Item.h"
 
 class ModItem : public Item {
     public:

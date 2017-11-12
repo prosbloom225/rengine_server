@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-std=c++11 -Wall -g -Wno-unused-variable -Wno-reorder
-INC=-I.
+INC=-I. -I./src/main/c/
 LIB=
 SRCDIR=src
 OBJDIR=obj

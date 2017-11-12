@@ -1,7 +1,6 @@
 #include "ItemRegistry.h"
 
-ItemRegistry::ItemRegistry() {
-}
+std::map<int, Item> ItemRegistry::items;
 
 int ItemRegistry::addItem(Item *item) {
     // get next available id
@@ -17,7 +16,7 @@ int ItemRegistry::addItem(int id, Item *item){
 
 Item *ItemRegistry::getItem(int id) {
     // return a deep copy
-    Item *ret = items.at(id).copy();
+    Item *ret = ItemRegistry::items.at(id).copy();
     LOG(DEBUG) << ret;
     return ret;
 }
@@ -25,7 +24,7 @@ Item *ItemRegistry::getItem(int id) {
 void ItemRegistry::dumpRegistry() {
     //TODO - mask this behind debug flag
     LOG(DEBUG) << "dumping ItemRegistry";
-    for (auto& x : items) {
+    for (auto& x : ItemRegistry::items) {
         LOG(DEBUG) << &x.second;
     }
 }
