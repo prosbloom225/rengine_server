@@ -11,3 +11,6 @@ bin/*
 # logs
 *.log
 logs/
+
+# task runner
+node_modules/

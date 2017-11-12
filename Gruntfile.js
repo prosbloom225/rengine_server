@@ -18,20 +18,29 @@ module.exports = function(grunt) {
                 command: 'bin/main 2&> out.log',
             },
             test: {
-                command: "echo TEST COMPLETE",
+                command: "bin/main",
             }},
         watch: {
-            scripts: {
-                files: ['**/*.cpp', '**/*.h'],
-                             tasks: ['build'],
-                             options: {
-                             forever: true,
-                             spawn: false,
-                             }
-            }
+            cpp: {
+                    files: ['**/*.cpp'],
+                    tasks: ['build'],
+                    options: {
+                    forever: true,
+                    spawn: false,
+                     }
+                },
+             h: {
+                    files: ['**/*.h'],
+                    tasks: ['clean','build'],
+                    options: {
+                    forever: true,
+                    spawn: false,
+                    }
+                }
         }
     });
     grunt.registerTask('default', ['watch']);
+    grunt.registerTask('clean', ['shell:clean']);
     grunt.registerTask('build', ['shell:make']);
     grunt.registerTask('run', ['shell:clean', 'shell:make', 'shell:execute', 'shell:test']);
     grunt.registerTask('exec', ['shell:execute', 'shell:test']);
