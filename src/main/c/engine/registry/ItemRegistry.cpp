@@ -21,6 +21,10 @@ Item *ItemRegistry::getItem(int id) {
     return ret;
 }
 
+void ItemRegistry::clear() {
+    LOG(DEBUG) << "Clearing ItemRegistry";
+    ItemRegistry::items.clear();
+}
 void ItemRegistry::dumpRegistry() {
     //TODO - mask this behind debug flag
     LOG(DEBUG) << "dumping ItemRegistry";
