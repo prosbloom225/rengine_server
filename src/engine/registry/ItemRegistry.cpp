@@ -2,9 +2,6 @@
 
 std::map<int, Item> ItemRegistry::items;
 
-ItemRegistry::ItemRegistry() {
-}
-
 int ItemRegistry::addItem(Item *item) {
     // get next available id
     return 0;

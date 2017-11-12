@@ -8,11 +8,10 @@ class ItemRegistry {
     private:
         static std::map<int, Item> items;
     public:
-        ItemRegistry();
         static int addItem(Item *item);
         static int addItem(int id, Item *item);
         static Item *getItem(int id);
-        void dumpRegistry();
+        static void dumpRegistry();
 };
 
 #endif
