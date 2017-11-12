@@ -8,7 +8,7 @@
 
 class Items {
     private:
-        static bool loadItem(Item *item);
+        static int loadItem(int id, Item *item);
     public:
         static void loadItems();
 };

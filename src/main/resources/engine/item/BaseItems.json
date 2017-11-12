@@ -1,8 +1,10 @@
 [
     {
-        "name" : "testItem0"
+        "name" : "testItem0",
+        "id" : 0
     },
     {
-        "name" : "testItem1"
+        "name" : "testItem1",
+        "id" : 1
     }
 ]

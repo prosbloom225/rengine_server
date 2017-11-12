@@ -2,9 +2,9 @@
 
 using json = nlohmann::json;
 
-bool Items::loadItem(Item *item){
-    ItemRegistry::addItem(item);
-    return true;
+int Items::loadItem(int id, Item *item){
+    int ret = ItemRegistry::addItem(id, item);
+    return id;
 }
 
 void Items::loadItems(){
@@ -14,11 +14,11 @@ void Items::loadItems(){
     i >> j;
     i.close();
     for(unsigned int i=0;i < j.size();i++){
-        LOG(DEBUG) << j[i]["name"] << std::endl;
-
+        std::string name = j[i]["name"].get<std::string>();
+        int id = j[i]["id"];
         Item item = Item::Builder()
-            .setName(new std::string("testItem0"))
+            .setName(&name)
             .build();
-        loadItem(&item);
+        loadItem(id, &item);
     }
 }

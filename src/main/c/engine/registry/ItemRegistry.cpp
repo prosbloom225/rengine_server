@@ -9,7 +9,7 @@ int ItemRegistry::addItem(Item *item) {
 int ItemRegistry::addItem(int id, Item *item){
     // add item at explicit id
     //
-    LOG(DEBUG) << "Adding item: " << item;
+    LOG(DEBUG) << "Adding item: " << id << ": " << item;
     items.insert(std::pair<int, Item>(id, *item));
     return id;
 }
