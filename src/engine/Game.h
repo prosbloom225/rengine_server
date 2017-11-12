@@ -8,7 +8,7 @@ class Game {
     public:
         Game();
         static ItemRegistry registry;
-        BaseMod *mods[1];
+        BaseMod mods[1];
 
     private:
         void lifecycle();
