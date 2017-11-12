@@ -10,24 +10,22 @@ class Item {
 
     public:
         class Builder;
-    private:
+    protected:
+        Item(std::string const &modName, std::string const &itemName);
         std::string *modName;// = new std::string("base");
         std::string *name;
         Recipe recipe;
 
 
     public:
-        Item(std::string const &modName, std::string const &itemName);
-        Item(std::string const &itemName);
         const char *getName(){ return name->c_str();};
         const char *getModName(){ return modName->c_str();};
         Item *copy();
         friend std::ostream& operator<<(std::ostream& out, const Item *item){
-            return out << "name(" 
-                << item->modName->c_str()
-                << ":" 
-                << item->name->c_str()
-                << ")";
+            return out << "{\"Item\" : {"
+                << "\"mod\" : \"" << item->modName->c_str() << "\","
+                << "\"name\" : \"" << item->name->c_str() << "\""
+                << "}}";
         }
 
 };
