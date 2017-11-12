@@ -11,8 +11,8 @@ class Item {
     public:
         class Builder;
     private:
+        std::string *modName;// = new std::string("base");
         std::string *name;
-        std::string *modName = new std::string("base");
         Recipe recipe;
 
 
@@ -33,7 +33,7 @@ class Item {
 };
 
 class Item::Builder {
-    private:
+    protected:
         std::string *name;
         std::string *modName;
         /* Recipe recipe; */

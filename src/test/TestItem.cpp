@@ -5,7 +5,7 @@
 TEST_CASE("Test basic item", "[item]") {
     Item item = Item::Builder()
         .setModName(new std::string("test"))
-        .setName(new std::string("testItem1"))
+        .setName(new std::string("testItem0"))
         .build();
 
     // require all properties here

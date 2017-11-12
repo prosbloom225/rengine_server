@@ -4,9 +4,12 @@
 
 
 TEST_CASE("Test basic ModItem", "[moditem]") {
-    ModItem *item = new ModItem("testModItem1", 0);
+    ModItem item = ModItem::Builder()
+            .setName("testModItem1")
+            .setCval(1.0)
+            .build();
 
     // require all properties here
-    REQUIRE(strcmp(item->getName(), "testModItem1") == 0);
-    REQUIRE(item->getCVal() == 0);
+    REQUIRE(strcmp(item.getName(), "testModItem1") == 0);
+    REQUIRE(item.getCVal() == 0);
 }
