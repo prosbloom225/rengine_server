@@ -6,12 +6,12 @@
 
 class ItemRegistry {
     private:
-        std::map<int, Item> items;
+        static std::map<int, Item> items;
     public:
         ItemRegistry();
-        int addItem(Item *item);
-        int addItem(int id, Item *item);
-        Item *getItem(int id);
+        static int addItem(Item *item);
+        static int addItem(int id, Item *item);
+        static Item *getItem(int id);
         void dumpRegistry();
 };
 
