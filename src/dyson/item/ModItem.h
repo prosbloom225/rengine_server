@@ -10,8 +10,8 @@ class ModItem : public Item {
        double cVal;
 
     public: 
-        /* ModItem(std::string name, double CVal); */
         ModItem(std::string const &modName, std::string const &itemName, double cVal);
+        ModItem(std::string const &modName, std::string const &itemName);
         double getCVal(){ return cVal;};
 };
 
@@ -19,11 +19,12 @@ class ModItem::Builder : public Item::Builder {
     protected:
         double cVal;
     public:
-        static const constexpr double defaultCval = 0;
+        /* static const constexpr double defaultCval = 0; */
 
-        ModItem::Builder& setCval(double cVal) { this->cVal=cVal; return *this;}
+        Builder& setCval(double cVal) { this->cVal=cVal; return *this;}
 
-        ModItem ModItem::build() {
+        using Item::Builder::build;
+        ModItem build() {
             return ModItem(*this->modName, *this->name, this->cVal);
         }
 };
