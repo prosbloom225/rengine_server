@@ -1,5 +1,5 @@
 #include "include/catch.h"
-#include "../engine/item/Item.h"
+#include "src/engine/item/Item.h"
 
 TEST_CASE("Test basic item defaults", "[item]") {
     Item item = Item::Builder()
