@@ -1,8 +1,8 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
-#include "src/engine/item/Item.h"
-#include "src/engine/registry/ItemRegistry.h"
+#include "engine/item/Item.h"
+#include "engine/registry/ItemRegistry.h"
 
 class Items {
     private:

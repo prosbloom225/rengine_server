@@ -1,5 +1,5 @@
 #include "include/catch.h"
-#include "src/engine/Game.h"
+#include "engine/Game.h"
 
 // BEFORE
 Game game = Game();

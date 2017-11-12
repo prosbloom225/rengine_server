@@ -1,5 +1,5 @@
 #include "include/catch.h"
-#include "src/engine/registry/ItemRegistry.h"
+#include "engine/registry/ItemRegistry.h"
 
 TEST_CASE("Test adding basic items ", "[itemregistry]") {
     Item item0 = Item::Builder()

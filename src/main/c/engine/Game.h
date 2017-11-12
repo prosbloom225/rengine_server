@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "src/engine/registry/ItemRegistry.h"
-#include "src/engine/base/BaseMod.h"
+#include "engine/registry/ItemRegistry.h"
+#include "engine/base/BaseMod.h"
 
 class Game {
     public:

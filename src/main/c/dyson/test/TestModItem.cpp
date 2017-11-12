@@ -1,6 +1,6 @@
 
 #include "include/catch.h"
-#include "src/dyson/item/ModItem.h"
+#include "dyson/item/ModItem.h"
 
 TEST_CASE("Test ModItem builder defaults", "[moditem]") {
     ModItem item = ModItem::Builder()
