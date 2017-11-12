@@ -1,4 +1,5 @@
 #include "Item.h"
+
 Item::Item(std::string const &itemName){
     this->name = new std::string(itemName);
     LOG(DEBUG) << this;

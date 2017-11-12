@@ -3,9 +3,13 @@
 
 
 TEST_CASE("Test basic item", "[item]") {
-    Item *item = new Item("test", "testItem1");
+    Item item = Item::Builder()
+        .setModName(new std::string("test"))
+        .setName(new std::string("testItem1"))
+        .build();
 
     // require all properties here
-    REQUIRE(strcmp(item->getName(), "testItem1") == 0);
-    REQUIRE(strcmp(item->getModName(), "test") == 0);
+    REQUIRE(strcmp(item.getName(), "testItem0") == 0);
+    REQUIRE(strcmp(item.getModName(), "test") == 0);
 }
+
