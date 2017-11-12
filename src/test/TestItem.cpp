@@ -1,11 +1,23 @@
 #include "include/catch.h"
 #include "../engine/item/Item.h"
 
-
-TEST_CASE("Test basic item", "[item]") {
-    Item *item = new Item("test", "testItem1");
+TEST_CASE("Test basic item defaults", "[item]") {
+    Item item = Item::Builder()
+        .build();
 
     // require all properties here
-    REQUIRE(strcmp(item->getName(), "testItem1") == 0);
-    REQUIRE(strcmp(item->getModName(), "test") == 0);
+    REQUIRE(strcmp(item.getName(), "null") == 0);
+    REQUIRE(strcmp(item.getModName(), "base") == 0);
 }
+
+TEST_CASE("Test basic item properties", "[item]") {
+    Item item = Item::Builder()
+        .setModName(new std::string("test"))
+        .setName(new std::string("testItem0"))
+        .build();
+
+    // require all properties here
+    REQUIRE(strcmp(item.getName(), "testItem0") == 0);
+    REQUIRE(strcmp(item.getModName(), "test") == 0);
+}
+
