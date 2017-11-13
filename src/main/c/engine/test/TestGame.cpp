@@ -8,8 +8,8 @@ TEST_CASE("Test game constructor", "[game]") {
     REQUIRE(&game != NULL);
 };
 TEST_CASE("Test mod loader", "[game]") {
-    Game game = Game();
-    for (auto& mod : game.mods){
+    for (auto& mod : Game::mods){
+        LOG(DEBUG) << mod.getModName();
         REQUIRE(mod.getModName().empty() == 0);
     }
 };
