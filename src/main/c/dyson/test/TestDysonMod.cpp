@@ -6,11 +6,20 @@ TEST_CASE("Test Dyson mod item loading","[dyson]") {
     ItemRegistry::clear();
     ModItems::loadItems();
     /* ItemRegistry::dumpRegistry(); */
-    Item *item = ItemRegistry::getItem(10);
-    ModItem *modItem = static_cast<ModItem *>(item);
 
+    // testModItem0
+    ModItem *item = static_cast<ModItem *>(ItemRegistry::getItem(10));
 
     // require all properties here
-    REQUIRE(strcmp(modItem->getName(), "testModItem0") == 0);
+    REQUIRE(strcmp(item->getName(), "testModItem0") == 0);
     REQUIRE(strcmp(item->getModName(), "dyson") == 0);
+    REQUIRE(item->getCVal() == 7.7);
+
+    // testModItem1
+    item = static_cast<ModItem *>(ItemRegistry::getItem(11));
+
+    // require all properties here
+    REQUIRE(strcmp(item->getName(), "testModItem1") == 0);
+    REQUIRE(strcmp(item->getModName(), "dyson") == 0);
+    REQUIRE(item->getCVal() == 33.0);
 };
