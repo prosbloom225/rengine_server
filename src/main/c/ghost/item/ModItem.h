@@ -29,7 +29,7 @@ class ModItem::Builder : public Item::Builder {
         double cVal;
 
     public:
-        static const constexpr char *defaultModName = "dyson";
+        static const constexpr char *defaultModName = "ghost";
         static const constexpr double defaultCVal = 0.0;
 
         Builder() : modName(new std::string(defaultModName)), name(new std::string(defaultName)), cVal(defaultCVal) { }

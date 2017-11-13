@@ -3,7 +3,7 @@
 
 #include "include/json.h"
 
-#include "dyson/item/ModItem.h"
+#include "ghost/item/ModItem.h"
 #include "engine/registry/ItemRegistry.h"
 #include "engine/base/Items.h"
 

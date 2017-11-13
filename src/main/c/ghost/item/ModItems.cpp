@@ -8,7 +8,7 @@ int ModItems::loadItem(int id, ModItem *item){
 }
 void ModItems::loadItems(){
     LOG(DEBUG) << "Mod itemload called";
-    std::ifstream i("./src/main/resources/dyson/item/ModItems.json");
+    std::ifstream i("./src/main/resources/ghost/item/ModItems.json");
     json j;
     i >> j;
     i.close();
