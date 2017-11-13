@@ -5,7 +5,6 @@ TEST_CASE("Test Dyson mod item loading","[dyson]") {
     LOG(INFO) << "Test Dyson mod item loading";
     ItemRegistry::clear();
     ModItems::loadItems();
-    /* ItemRegistry::dumpRegistry(); */
 
     // testModItem0
     ModItem *item = static_cast<ModItem *>(ItemRegistry::getItem(10));
@@ -22,4 +21,6 @@ TEST_CASE("Test Dyson mod item loading","[dyson]") {
     REQUIRE(strcmp(item->getName(), "testModItem1") == 0);
     REQUIRE(strcmp(item->getModName(), "dyson") == 0);
     REQUIRE(item->getCVal() == 33.0);
-};
+    /* ItemRegistry::dumpRegistry(); */
+}
+

@@ -3,6 +3,7 @@
 
 TEST_CASE("Test adding basic items ", "[itemregistry]") {
     LOG(INFO) << "Test adding baseic items";
+    ItemRegistry::clear();
     Item *item0 = Item::Builder()
         .setName("testItem0")
         .build();
@@ -25,6 +26,7 @@ TEST_CASE("Test existing items arent deallocating out of scope", "[itemregistry]
 
 TEST_CASE("Test overriding existing item", "[itemregistry]"){
     LOG(INFO) << "Test overriding exiting item";
+    ItemRegistry::clear();
     Item *item1 = Item::Builder()
         .setName("testItem1")
         .build();

@@ -21,7 +21,7 @@ int ItemRegistry::addItem(int id, Item *item){
 Item *ItemRegistry::getItem(int id) {
     // return a deep copy
     /* LOG(DEBUG) << "Getting item: " << id; */
-    return ItemRegistry::items.at(id);
+    return ItemRegistry::items.at(id)->copy();
 }
 
 void ItemRegistry::clear() {
@@ -32,9 +32,7 @@ void ItemRegistry::dumpRegistry() {
     //TODO - mask this behind debug flag
     LOG(DEBUG) << "dumping ItemRegistry";
 
-    /*
     for (auto x : ItemRegistry::items) {
-        LOG(DEBUG) << x.second.getName();
+        LOG(DEBUG) << x.second;
     }
-    */
 }
