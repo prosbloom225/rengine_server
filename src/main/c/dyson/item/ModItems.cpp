@@ -7,7 +7,7 @@ int ModItems::loadItem(int id, ModItem *item){
     return id;
 }
 void ModItems::loadItems(){
-    LOG(DEBUG) << "Base itemload called";
+    LOG(DEBUG) << "Mod itemload called";
     std::ifstream i("./src/main/resources/dyson/item/ModItems.json");
     json j;
     i >> j;
@@ -20,7 +20,7 @@ void ModItems::loadItems(){
             .setName(&name)
             .setCVal(cVal)
             .build();
-        LOG(DEBUG) << item;
+        LOG(DEBUG) << "Loaded from json: " << item;
         loadItem(id, &item);
     }
 }

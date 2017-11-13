@@ -19,8 +19,8 @@ int ItemRegistry::addItem(int id, Item *item){
 
 Item *ItemRegistry::getItem(int id) {
     // return a deep copy
-    Item *ret = ItemRegistry::items.at(id).get()->copy();
-    LOG(DEBUG) << ret;
+    /* Item *ret = ItemRegistry::items.at(id).get()->copy(); */
+    /* LOG(DEBUG) << ret; */
     return ItemRegistry::items.at(id).get();
 }
 
