@@ -1,24 +1,26 @@
-#include "Items.h"
+#include "ModItems.h"
 
 using json = nlohmann::json;
 
-int Items::loadItem(int id, Item *item){
+int ModItems::loadItem(int id, ModItem *item){
     int ret = ItemRegistry::addItem(id, item);
     return id;
 }
-
-void Items::loadItems(){
+void ModItems::loadItems(){
     LOG(DEBUG) << "Base itemload called";
-    std::ifstream i("./src/main/resources/engine/item/BaseItems.json");
+    std::ifstream i("./src/main/resources/dyson/item/ModItems.json");
     json j;
     i >> j;
     i.close();
     for(unsigned int i=0;i < j.size();i++){
         std::string name = j[i]["name"].get<std::string>();
+        double cVal = j[i]["cVal"];
         int id = j[i]["id"];
-        Item *item = Item::Builder()
+        ModItem item = ModItem::Builder()
             .setName(&name)
+            .setCVal(cVal)
             .build();
-        loadItem(id, item);
+        LOG(DEBUG) << item;
+        loadItem(id, &item);
     }
 }

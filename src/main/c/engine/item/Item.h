@@ -50,8 +50,8 @@ class Item::Builder {
         Builder& setModName(const char *modName) { this->modName = new std::string(modName); return *this;}
         Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
 
-        Item build() {
-            return Item(*this->modName, *this->name);
+        Item *build() {
+            return new Item(*this->modName, *this->name);
         }
 };
 
