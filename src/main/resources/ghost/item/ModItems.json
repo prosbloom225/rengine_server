@@ -2,11 +2,13 @@
     {
         "name" : "testModItem0",
         "id" : 10,
+        "ilvl" : 1,
         "cVal" : 7.7
     },
     {
         "name" : "testModItem1",
         "id" : 11,
+        "ilvl" : 5,
         "cVal" : 33.0
     }
 ]

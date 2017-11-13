@@ -4,6 +4,7 @@
 #include "include/json.h"
 
 #include "ghost/item/ModItem.h"
+#include "ghost/lib/LibMisc.h"
 #include "engine/registry/ItemRegistry.h"
 #include "engine/base/Items.h"
 
