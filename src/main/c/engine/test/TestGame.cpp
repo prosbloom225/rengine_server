@@ -2,13 +2,14 @@
 #include "engine/Game.h"
 
 // BEFORE
-Game game = Game();
 
 TEST_CASE("Test game constructor", "[game]") {
+    Game game = Game();
     REQUIRE(&game != NULL);
 };
 TEST_CASE("Test mod loader", "[game]") {
-    for (auto& mod : game.mods){
+    for (auto& mod : Game::mods){
+        LOG(DEBUG) << mod.getModName();
         REQUIRE(mod.getModName().empty() == 0);
     }
 };

@@ -1,5 +1,7 @@
 #include "Game.h"
 
+BaseMod Game::mods[1];
+
 Game::Game() {
     // TODO - dynamic modloader
     // hardcoding mods for now
