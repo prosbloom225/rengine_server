@@ -47,8 +47,8 @@ class ModItem::Builder : public Item::Builder {
         // Child properties
         Builder& setCVal(double cVal) { this->cVal = cVal; return *this;}
 
-        ModItem build() {
-            return ModItem(*this->modName, *this->name, this->cVal);
+        ModItem *build() {
+            return new ModItem(*this->modName, *this->name, this->cVal);
         }
 };
 

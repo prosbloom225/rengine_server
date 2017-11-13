@@ -2,7 +2,7 @@
 
 using namespace std;
 
-std::map<int, unique_ptr<Item>> ItemRegistry::items;
+std::map<int, Item*> ItemRegistry::items;
 
 int ItemRegistry::addItem(Item *item) {
     // get next available id
@@ -12,16 +12,16 @@ int ItemRegistry::addItem(int id, Item *item){
     // add item at explicit id
     //
     LOG(DEBUG) << "Adding item: " << id << ": " << item;
-    items.insert(std::pair<int, unique_ptr<Item>> (id, unique_ptr<Item>(item)));
+    /* items.insert(std::pair<int, Item*> (id, item)); */
+    items[id] = item;
     /* LOG(ERROR) << ItemRegistry::getItem(id); */
     return id;
 }
 
 Item *ItemRegistry::getItem(int id) {
     // return a deep copy
-    /* Item *ret = ItemRegistry::items.at(id).get()->copy(); */
-    /* LOG(DEBUG) << ret; */
-    return ItemRegistry::items.at(id).get();
+    /* LOG(DEBUG) << "Getting item: " << id; */
+    return ItemRegistry::items.at(id);
 }
 
 void ItemRegistry::clear() {

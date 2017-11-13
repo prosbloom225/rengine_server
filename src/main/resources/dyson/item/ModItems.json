@@ -2,11 +2,11 @@
     {
         "name" : "testModItem0",
         "id" : 10,
-        "cVal" : 0.0
+        "cVal" : 7.0
     },
     {
         "name" : "testModItem1",
         "id" : 11,
-        "cVal" : 1.0
+        "cVal" : 33.0
     }
 ]

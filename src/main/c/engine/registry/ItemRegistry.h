@@ -6,7 +6,7 @@
 
 class ItemRegistry {
     private:
-        static std::map<int, std::unique_ptr<Item>> items;
+        static std::map<int, Item*> items;
     public:
         static int addItem(Item *item);
         static int addItem(int id, Item *item);

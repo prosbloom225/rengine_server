@@ -8,9 +8,12 @@ TEST_CASE("Test Dyson mod item loading","[dyson]") {
     /* ItemRegistry::dumpRegistry(); */
     Item *item = ItemRegistry::getItem(10);
     ModItem *modItem = static_cast<ModItem *>(item);
-    std::cout << std::endl << item->getName() << std::endl;
+
+    std::cout << std::endl << modItem->getCVal() << std::endl;
+    /* std::cout << std::endl << modItem->getName() << std::endl; */
+    /* std::cout << std::endl << modItem->getCVal() << std::endl; */
 
     // require all properties here
-    REQUIRE(strcmp(item->getName(), "testModItem0") == 0);
-    REQUIRE(strcmp(item->getModName(), "dyson") == 0);
+    REQUIRE(strcmp(modItem->getName(), "testModItem0") == 0);
+    /* REQUIRE(strcmp(item->getModName(), "dyson") == 0); */
 };

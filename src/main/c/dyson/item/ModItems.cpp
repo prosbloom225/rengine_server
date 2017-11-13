@@ -16,11 +16,11 @@ void ModItems::loadItems(){
         std::string name = j[i]["name"].get<std::string>();
         double cVal = j[i]["cVal"];
         int id = j[i]["id"];
-        ModItem item = ModItem::Builder()
+        ModItem *item = ModItem::Builder()
             .setName(&name)
             .setCVal(cVal)
             .build();
-        LOG(DEBUG) << "Loaded from json: " << item;
-        loadItem(id, &item);
+        LOG(DEBUG) << "Loaded from json: " << id << " - " << item;
+        loadItem(id, item);
     }
 }
