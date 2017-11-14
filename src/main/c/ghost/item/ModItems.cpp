@@ -14,16 +14,32 @@ void ModItems::loadItems(){
     i >> j;
     i.close();
     for(unsigned int i=0;i < j.size();i++){
-        std::string name = j[i]["name"].get<std::string>();
-        double cVal = j[i]["cVal"];
-        int id = j[i]["id"];
-        int ilvl = j[i]["ilvl"];
+        ModItem *item = ModItemFactory(j[i]);
+        loadItem(j[i]["id"], item);
+    }
+}
+
+ModItem* ModItems::ModItemFactory(json json) {
+        /* std::string type = json["type"].get<std::string>(); */
+    LibMisc::items type = json["type"].get<LibMisc::items>();
+        switch (type) {
+            case (LibMisc::items::WEAPON):
+                std::cout << "Weapon";
+                break;
+            case (LibMisc::items::ARMOR):
+                std::cout << "Armor";
+                break;
+        }
+        std::string name = json["name"].get<std::string>();
+        double cVal = json["cVal"];
+        int id = json["id"];
+        int ilvl = json["ilvl"];
         ModItem *item = ModItem::Builder()
             .setName(&name)
             .setCVal(cVal)
             .setIlvl(ilvl)
             .build();
         LOG(DEBUG) << "Loaded from json: " << id << " - " << item;
-        loadItem(id, item);
-    }
+        return item;
 }
+

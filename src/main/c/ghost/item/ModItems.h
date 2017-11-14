@@ -11,6 +11,7 @@
 class ModItems : public Items {
     private:
         static int loadItem(int id, ModItem *item);
+        static ModItem* ModItemFactory(nlohmann::json json);
     public:
         static void loadItems();
 };
