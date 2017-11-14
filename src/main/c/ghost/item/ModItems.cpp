@@ -20,26 +20,22 @@ void ModItems::loadItems(){
 }
 
 ModItem* ModItems::ModItemFactory(json json) {
-        /* std::string type = json["type"].get<std::string>(); */
-    LibMisc::items type = json["type"].get<LibMisc::items>();
-        switch (type) {
-            case (LibMisc::items::WEAPON):
-                std::cout << "Weapon";
-                break;
-            case (LibMisc::items::ARMOR):
-                std::cout << "Armor";
-                break;
-        }
-        std::string name = json["name"].get<std::string>();
-        double cVal = json["cVal"];
-        int id = json["id"];
-        int ilvl = json["ilvl"];
-        ModItem *item = ModItem::Builder()
-            .setName(&name)
-            .setCVal(cVal)
-            .setIlvl(ilvl)
-            .build();
-        LOG(DEBUG) << "Loaded from json: " << id << " - " << item;
-        return item;
+    std::string type = json["type"].get<std::string>();
+    /* LibMisc::items type = json["type"].get<LibMisc::items>(); */
+    if (type.compare("WEAPON") == 0)
+        std::cout << "Weapon";
+    else if (type.compare("ARMOR") == 0)
+        std::cout << "Armor";
+    std::string name = json["name"].get<std::string>();
+    double cVal = json["cVal"];
+    int id = json["id"];
+    int ilvl = json["ilvl"];
+    ModItem *item = ModItem::Builder()
+        .setName(&name)
+        .setCVal(cVal)
+        .setIlvl(ilvl)
+        .build();
+    LOG(DEBUG) << "Loaded from json: " << id << " - " << item;
+    return item;
 }
 
