@@ -32,18 +32,23 @@ ModItem* ModItems::ModItemFactory(json json) {
 
     if (type.compare("WEAPON") == 0) {
         LOG(DEBUG) << "Building Weapon item...";
-        item = ModItem::Builder()
+        item = ModItemWeapon::Builder()
             .setName(&name)
             .setCVal(cVal)
             .setIlvl(ilvl)
+            .setAp(json["ap"])
             .build();
+        LOG(DEBUG) << "Built item: " << static_cast<ModItemWeapon*>(item);
     } else if (type.compare("ARMOR") == 0) {
         LOG(DEBUG) << "Building Armor item...";
-        item = ModItem::Builder()
+        item = ModItemArmor::Builder()
             .setName(&name)
             .setCVal(cVal)
             .setIlvl(ilvl)
+            .setPv(json["pv"])
+            .setDv(json["dv"])
             .build();
+        LOG(DEBUG) << "Built item: " << static_cast<ModItemArmor*>(item);
     } else {
         std::cout << "Default";
         item = ModItem::Builder()

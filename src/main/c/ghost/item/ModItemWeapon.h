@@ -17,7 +17,8 @@ class ModItemWeapon : public ModItem {
                 << "\"mod\" : \"" << item.modName->c_str() << "\","
                 << "\"name\" : \"" << item.name->c_str() << "\","
                 << "\"cVal\" : " << item.cVal << ","
-                << "\"ilvl\" : " << item.ilvl<< ""
+                << "\"ilvl\" : " << item.ilvl<< ","
+                << "\"ap\" : " << item.ap<< ""
                 << "}}";
         }
 };

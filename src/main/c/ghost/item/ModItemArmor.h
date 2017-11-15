@@ -19,7 +19,9 @@ class ModItemArmor : public ModItem {
                 << "\"mod\" : \"" << item.modName->c_str() << "\","
                 << "\"name\" : \"" << item.name->c_str() << "\","
                 << "\"cVal\" : " << item.cVal << ","
-                << "\"ilvl\" : " << item.ilvl<< ""
+                << "\"ilvl\" : " << item.ilvl<< ","
+                << "\"pv\" : " << item.pv<< ","
+                << "\"dv\" : " << item.dv<< ""
                 << "}}";
         }
 };

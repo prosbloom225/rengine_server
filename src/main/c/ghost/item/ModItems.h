@@ -4,6 +4,8 @@
 #include "include/json.h"
 
 #include "ghost/item/ModItem.h"
+#include "ghost/item/ModItemWeapon.h"
+#include "ghost/item/ModItemArmor.h"
 #include "ghost/lib/LibMisc.h"
 #include "engine/registry/ItemRegistry.h"
 #include "engine/base/Items.h"

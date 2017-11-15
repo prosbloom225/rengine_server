@@ -4,13 +4,16 @@
         "id" : 10,
         "type" : "WEAPON",
         "ilvl" : 1,
-        "cVal" : 7.7
+        "cVal" : 7.7,
+        "ap" : 7
     },
     {
         "name" : "testModItem1",
         "id" : 11,
         "type" : "ARMOR",
         "ilvl" : 5,
-        "cVal" : 33.0
+        "cVal" : 33.0,
+        "pv" : 2.1,
+        "dv" : 6.6
     }
 ]
