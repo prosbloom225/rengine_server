@@ -13,10 +13,10 @@ class ModItemWeapon : public ModItem {
     public: 
         unsigned int getAp(){ return ap;};
         friend std::ostream& operator<<(std::ostream& out, const ModItemWeapon item){
-            return out << "{\"ModItem\" : {"
+            return out << "{\"ModItemWeapon\" : {"
                 << "\"mod\" : \"" << item.modName->c_str() << "\","
                 << "\"name\" : \"" << item.name->c_str() << "\","
-                << "\"cVal\" : " << item.cVal << ","
+                << "\"cVal\" : " << item.emcVal << ","
                 << "\"ilvl\" : " << item.ilvl<< ","
                 << "\"ap\" : " << item.ap<< ""
                 << "}}";
@@ -38,7 +38,7 @@ class ModItemWeapon::Builder : public ModItem::Builder {
         // Parent properties
         Builder& setName(std::string *name) { this->name= name; return *this;}
         Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
-        Builder& setCVal(double cVal) { this->cVal = cVal; return *this;}
+        Builder& setEmcVal(double emcVal) { this->emcVal = emcVal; return *this;}
         Builder& setIlvl(int ilvl) { this->ilvl = ilvl; return *this;}
 
 
@@ -48,7 +48,7 @@ class ModItemWeapon::Builder : public ModItem::Builder {
 
 
         ModItemWeapon *build() {
-            return new ModItemWeapon(*this->modName, *this->name, this->ilvl, this->cVal, this->ap);
+            return new ModItemWeapon(*this->modName, *this->name, this->ilvl, this->emcVal, this->ap);
         }
 };
 

@@ -23,7 +23,7 @@ ModItem* ModItems::ModItemFactory(json json) {
     // base props
     std::string type = json["type"].get<std::string>();
     std::string name = json["name"].get<std::string>();
-    double cVal = json["cVal"];
+    double emcVal = json["emcVal"];
     int id = json["id"];
     int ilvl = json["ilvl"];
 
@@ -33,27 +33,27 @@ ModItem* ModItems::ModItemFactory(json json) {
     if (type.compare("WEAPON") == 0) {
         LOG(DEBUG) << "Building Weapon item...";
         item = ModItemWeapon::Builder()
-            .setName(&name)
-            .setCVal(cVal)
-            .setIlvl(ilvl)
             .setAp(json["ap"])
+            .setName(&name)
+            .setEmcVal(emcVal)
+            .setIlvl(ilvl)
             .build();
         LOG(DEBUG) << "Built item: " << static_cast<ModItemWeapon*>(item);
     } else if (type.compare("ARMOR") == 0) {
         LOG(DEBUG) << "Building Armor item...";
         item = ModItemArmor::Builder()
-            .setName(&name)
-            .setCVal(cVal)
-            .setIlvl(ilvl)
             .setPv(json["pv"])
             .setDv(json["dv"])
+            .setName(&name)
+            .setEmcVal(emcVal)
+            .setIlvl(ilvl)
             .build();
         LOG(DEBUG) << "Built item: " << static_cast<ModItemArmor*>(item);
     } else {
         std::cout << "Default";
         item = ModItem::Builder()
             .setName(&name)
-            .setCVal(cVal)
+            .setEmcVal(emcVal)
             .setIlvl(ilvl)
             .build();
     }

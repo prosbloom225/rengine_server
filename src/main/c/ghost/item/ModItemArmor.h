@@ -18,7 +18,7 @@ class ModItemArmor : public ModItem {
             return out << "{\"ModItem\" : {"
                 << "\"mod\" : \"" << item.modName->c_str() << "\","
                 << "\"name\" : \"" << item.name->c_str() << "\","
-                << "\"cVal\" : " << item.cVal << ","
+                << "\"cVal\" : " << item.emcVal << ","
                 << "\"ilvl\" : " << item.ilvl<< ","
                 << "\"pv\" : " << item.pv<< ","
                 << "\"dv\" : " << item.dv<< ""
@@ -43,7 +43,7 @@ class ModItemArmor::Builder : public ModItem::Builder {
         // Parent properties
         Builder& setName(std::string *name) { this->name= name; return *this;}
         Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
-        Builder& setCVal(double cVal) { this->cVal = cVal; return *this;}
+        Builder& setEmcVal(double emcVal) { this->emcVal = emcVal; return *this;}
         Builder& setIlvl(int ilvl) { this->ilvl = ilvl; return *this;}
 
 
@@ -54,7 +54,7 @@ class ModItemArmor::Builder : public ModItem::Builder {
 
 
         ModItemArmor *build() {
-            return new ModItemArmor(*this->modName, *this->name, this->ilvl, this->cVal, this->pv, this->dv);
+            return new ModItemArmor(*this->modName, *this->name, this->ilvl, this->emcVal, this->pv, this->dv);
         }
 };
 

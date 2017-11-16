@@ -13,7 +13,7 @@ TEST_CASE("Test Ghost mod item loading","[ghost]") {
     REQUIRE(strcmp(item->getName(), "testModItem0") == 0);
     REQUIRE(strcmp(item->getModName(), "ghost") == 0);
     REQUIRE(item->getIlvl() == 1);
-    REQUIRE(item->getCVal() == 7.7);
+    REQUIRE(item->getEmcVal() == 7.7);
     REQUIRE(item->getAp() == 7);
 
     // testModItem1
@@ -23,7 +23,7 @@ TEST_CASE("Test Ghost mod item loading","[ghost]") {
     REQUIRE(strcmp(item1->getName(), "testModItem1") == 0);
     REQUIRE(strcmp(item1->getModName(), "ghost") == 0);
     REQUIRE(item1->getIlvl() == 5);
-    REQUIRE(item1->getCVal() == 33.0);
+    REQUIRE(item1->getEmcVal() == 33.0);
     REQUIRE(item1->getPv() == 2.1);
     REQUIRE(item1->getDv() == 6.6);
 
