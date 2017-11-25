@@ -14,12 +14,12 @@ class ModItem : public Item {
     public: 
         double getEmcVal(){ return emcVal;};
         unsigned int getIlvl(){ return ilvl;};
-        friend std::ostream& operator<<(std::ostream& out, const ModItem item){
+        friend std::ostream& operator<<(std::ostream& out, const ModItem *item){
             return out << "{\"ModItem\" : {"
-                << "\"mod\" : \"" << item.modName->c_str() << "\","
-                << "\"name\" : \"" << item.name->c_str() << "\","
-                << "\"emcVal\" : " << item.emcVal<< ","
-                << "\"ilvl\" : " << item.ilvl<< ""
+                << "\"mod\" : \"" << item->modName->c_str() << "\","
+                << "\"name\" : \"" << item->name->c_str() << "\","
+                << "\"emcVal\" : " << item->emcVal<< ","
+                << "\"ilvl\" : " << item->ilvl<< ""
                 << "}}";
         }
 };
