@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-std=c++11 -Wall -g -Wno-unused-variable -Wno-reorder
+CFLAGS=-std=c++14 -Wall -g -Wno-unused-variable -Wno-reorder
 INC=-I. -I./src/main/c/
 LIB=
 SRCDIR=src
