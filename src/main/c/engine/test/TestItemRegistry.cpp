@@ -14,8 +14,8 @@ TEST_CASE("Test adding basic items ", "[itemregistry]") {
     ItemRegistry::addItem(1, item1);
     ItemRegistry::dumpRegistry();
 
-    REQUIRE(strcmp(ItemRegistry::getItem(0)->getName(),"testItem0") == 0);
-    REQUIRE(strcmp(ItemRegistry::getItem(1)->getName(),"testItem1") == 0);
+    REQUIRE(strcmp(ItemRegistry::getItem<Item>(0)->getName(),"testItem0") == 0);
+    REQUIRE(strcmp(ItemRegistry::getItem<Item>(1)->getName(),"testItem1") == 0);
 }
 
 TEST_CASE("Test existing items arent deallocating out of scope", "[itemregistry]") {

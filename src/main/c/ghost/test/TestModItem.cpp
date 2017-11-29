@@ -4,6 +4,8 @@
 #include "ghost/item/ModItemWeapon.h"
 #include "ghost/item/ModItemArmor.h"
 
+#include <typeinfo>
+
 TEST_CASE("Test ModItem builder defaults", "[moditem]") {
     LOG(INFO) << "Test ModItem builder defaults";
     ModItem *item = ModItem::Builder()
@@ -12,6 +14,9 @@ TEST_CASE("Test ModItem builder defaults", "[moditem]") {
     REQUIRE(strcmp(item->getName(), "null") == 0);
     REQUIRE(item->getEmcVal() == 0.0);
     REQUIRE(item->getIlvl() == 0);
+
+    std::string s = typeid(item).name();
+    LOG(WARNING) << s;
 }
 
 TEST_CASE("Test ModItem builder properties", "[moditem]") {

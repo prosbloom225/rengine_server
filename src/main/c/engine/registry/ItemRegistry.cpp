@@ -18,6 +18,7 @@ int ItemRegistry::addItem(int id, Item *item){
     return id;
 }
 
+
 Item *ItemRegistry::getItem(int id) {
     // return a deep copy
     /* LOG(DEBUG) << "Getting item: " << id; */
