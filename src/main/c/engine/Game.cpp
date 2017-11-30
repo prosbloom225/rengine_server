@@ -1,6 +1,7 @@
 #include "Game.h"
 
 BaseMod Game::mods[1];
+std::vector<IAction*> Game::stack;
 
 
 Game::Game() {
@@ -50,6 +51,15 @@ void Game::lifecycle() {
         // q
         if (a == 113)
             break;
+        else 
+            std::cout << (int)a;
+        // world server tick
+        // world server actions tick
+        for (auto &action : Game::stack){
+            action->onTick();
+        }
+        // world server entities tick
+        // updateTrackedEntities - dead/alive,garbage collection,etc
 
         // sanity
         if (tick > 20)
