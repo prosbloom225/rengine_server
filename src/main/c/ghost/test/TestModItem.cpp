@@ -17,6 +17,8 @@ TEST_CASE("Test ModItem builder defaults", "[moditem]") {
 
     std::string s = typeid(item).name();
     LOG(WARNING) << s;
+
+    delete item;
 }
 
 TEST_CASE("Test ModItem builder properties", "[moditem]") {
@@ -31,6 +33,8 @@ TEST_CASE("Test ModItem builder properties", "[moditem]") {
     REQUIRE(item->getEmcVal() == 2.0);
     REQUIRE(item->getIlvl() == 2);
     LOG(DEBUG) << item;
+    
+    delete item;
 }
 
 TEST_CASE("Test Ghost mod Weapon building", "[moditem]") {
@@ -48,6 +52,8 @@ TEST_CASE("Test Ghost mod Weapon building", "[moditem]") {
     REQUIRE(item->getAp() == 5);
     REQUIRE(item->getIlvl() == 2);
     LOG(DEBUG) << item;
+
+    delete item;
 }
 
 TEST_CASE("Test Ghost mod Armor building", "[moditem]") {
@@ -67,4 +73,6 @@ TEST_CASE("Test Ghost mod Armor building", "[moditem]") {
     REQUIRE(item->getPv() == 5.1);
     REQUIRE(item->getDv() == 8.8);
     LOG(DEBUG) << item;
+
+    delete item;
 }

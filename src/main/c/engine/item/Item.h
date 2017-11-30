@@ -10,6 +10,7 @@ class Item {
 
     public:
         class Builder;
+        ~Item();
     protected:
         Item(std::string const &modName, std::string const &itemName);
         std::string *modName;// = new std::string("base");
@@ -32,26 +33,26 @@ class Item {
 
 class Item::Builder {
     protected:
-        std::string *name;
-        std::string *modName;
+        std::string name;
+        std::string modName;
         /* Recipe recipe; */
     public:
         static const constexpr char *defaultModName = "base";
         static const constexpr char *defaultName = "null";
         /* static const constexpr Recipe defaultRecipe = NULL;//uncraftable */
 
-        Builder() : modName(new std::string(defaultModName)), name(new std::string(defaultName)) { }
+        Builder() : modName(std::string(defaultModName)), name(std::string(defaultName)) { }
 
-        Builder& setModName(std::string *modName) { this->modName = modName; return *this;}
-        Builder& setName(std::string *name) { this->name= name; return *this;}
+        Builder& setModName(std::string *modName) { this->modName = *modName; return *this;}
+        Builder& setName(std::string *name) { this->name= *name; return *this;}
         /* Builder& setRecipe(Recipe recipe) { this->recipe= recipe; return this;} */
 
         // overloads for cstr
-        Builder& setModName(const char *modName) { this->modName = new std::string(modName); return *this;}
-        Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
+        Builder& setModName(const char *modName) { this->modName = modName; return *this;}
+        Builder& setName(const char *name) { this->name= name; return *this;}
 
         Item *build() {
-            return new Item(*this->modName, *this->name);
+            return new Item(this->modName, this->name);
         }
 };
 
