@@ -18,4 +18,5 @@ TEST_CASE("Test base mod item loading","[base]") {
     REQUIRE(strcmp(item->getName(), "testItem1") == 0);
     REQUIRE(strcmp(item->getModName(), "base") == 0);
     ItemRegistry::dumpRegistry();
+    ItemRegistry::clear();
 }
