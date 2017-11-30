@@ -1,6 +1,7 @@
 #include "include/catch.h"
 #include "engine/registry/ItemRegistry.h"
 
+//// START COMBINED TEST ////
 TEST_CASE("Test adding basic items ", "[itemregistry]") {
     LOG(INFO) << "Test adding baseic items";
     ItemRegistry::clear();
@@ -14,15 +15,20 @@ TEST_CASE("Test adding basic items ", "[itemregistry]") {
     ItemRegistry::addItem(1, item1);
     ItemRegistry::dumpRegistry();
 
+
     REQUIRE(strcmp(ItemRegistry::getItem<Item>(0)->getName(),"testItem0") == 0);
     REQUIRE(strcmp(ItemRegistry::getItem<Item>(1)->getName(),"testItem1") == 0);
+
 }
 
 TEST_CASE("Test existing items arent deallocating out of scope", "[itemregistry]") {
     LOG(INFO) << "Test existing items arent deallocating out of scope";
     REQUIRE(strcmp(ItemRegistry::getItem(0)->getName(),"testItem0") == 0);
     REQUIRE(strcmp(ItemRegistry::getItem(1)->getName(),"testItem1") == 0);
+
+    ItemRegistry::clear();
 }
+//// END COMBINED TEST ////
 
 TEST_CASE("Test overriding existing item", "[itemregistry]"){
     LOG(INFO) << "Test overriding exiting item";
@@ -35,11 +41,10 @@ TEST_CASE("Test overriding existing item", "[itemregistry]"){
         .build();
     ItemRegistry::addItem(0, item1);
     ItemRegistry::addItem(0, item2);
-    /* registry->dumpRegistry(); */
     REQUIRE(0==0);
+    /* registry->dumpRegistry(); */
+    ItemRegistry::clear();
 
-    delete item1;
-    delete item2;
 }
 
 TEST_CASE("Test item copying", "[itemregistry]") {
@@ -66,4 +71,5 @@ TEST_CASE("Test item copying", "[itemregistry]") {
     REQUIRE(strcmp(copyItem0->getName(), item0->getName()) == -1);
 
     ItemRegistry::dumpRegistry();
+    ItemRegistry::clear();
 }

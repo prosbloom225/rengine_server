@@ -13,7 +13,11 @@ int ItemRegistry::addItem(int id, Item *item){
     // add item at explicit id
     //
     LOG(DEBUG) << "Adding item: " << id << ": " << item;
-    /* items.insert(std::pair<int, Item*> (id, item)); */
+    // if overwriteing, dealloc old item
+    if (items[id] != 0){
+        LOG(DEBUG) << "Dealloc item at pos: " << id;
+        delete items[id];
+    }
     items[id] = item;
     /* LOG(ERROR) << ItemRegistry::getItem(id); */
     return id;
