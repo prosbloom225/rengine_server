@@ -20,9 +20,9 @@ int ItemRegistry::addItem(int id, Item *item){
 
 
 Item *ItemRegistry::getItem(int id) {
-    // return a deep copy
+    // return the original obj pointer, copy later
     /* LOG(DEBUG) << "Getting item: " << id; */
-    return ItemRegistry::items.at(id)->copy();
+    return ItemRegistry::items.at(id);
 }
 
 void ItemRegistry::clear() {

@@ -38,3 +38,29 @@ TEST_CASE("Test overriding existing item", "[itemregistry]"){
     /* registry->dumpRegistry(); */
     REQUIRE(0==0);
 }
+
+TEST_CASE("Test item copying", "[itemregistry]") {
+    LOG(INFO) << "Test item copying";
+    ItemRegistry::clear();
+    Item *item0 = Item::Builder()
+        .setName("testItem0")
+        .build();
+    Item *item1 = Item::Builder()
+        .setName("testItem1")
+        .build();
+    ItemRegistry::addItem(0, item0);
+    ItemRegistry::addItem(1, item1);
+
+    REQUIRE(strcmp(ItemRegistry::getItem<Item>(0)->getName(),"testItem0") == 0);
+    REQUIRE(strcmp(ItemRegistry::getItem<Item>(1)->getName(),"testItem1") == 0);
+
+    // now make sure the copy is a deep copy
+    Item *copyItem0 = item0->copy();
+    item0 = item1;
+    LOG(INFO) << item0;
+    LOG(INFO) << copyItem0;
+
+    REQUIRE(strcmp(copyItem0->getName(), item0->getName()) == -1);
+
+    ItemRegistry::dumpRegistry();
+}
