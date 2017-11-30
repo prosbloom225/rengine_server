@@ -36,8 +36,8 @@ class ModItemWeapon::Builder : public ModItem::Builder {
         // properties need to be overloaded else the builder returns the parent Item::Builder&
         // TODO - could maybe get away with casting as the child Builder???
         // Parent properties
-        Builder& setName(std::string *name) { this->name= name; return *this;}
-        Builder& setName(const char *name) { this->name= new std::string(name); return *this;}
+        Builder& setName(std::string *name) { this->name= *name; return *this;}
+        Builder& setName(const char *name) { this->name= name; return *this;}
         Builder& setEmcVal(double emcVal) { this->emcVal = emcVal; return *this;}
         Builder& setIlvl(int ilvl) { this->ilvl = ilvl; return *this;}
 
@@ -48,7 +48,7 @@ class ModItemWeapon::Builder : public ModItem::Builder {
 
 
         ModItemWeapon *build() {
-            return new ModItemWeapon(*this->modName, *this->name, this->ilvl, this->emcVal, this->ap);
+            return new ModItemWeapon(this->modName, this->name, this->ilvl, this->emcVal, this->ap);
         }
 };
 

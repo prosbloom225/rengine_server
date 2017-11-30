@@ -7,6 +7,11 @@ Item::Item(std::string const &modName, std::string const &itemName){
     /* LOG(DEBUG) << this; */
 }
 
+Item::~Item() {
+    delete modName;
+    delete name;
+}
+
 Item *Item::copy() {
     Item *ret = this;
     // copy constructor does a deep copy?

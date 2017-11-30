@@ -37,6 +37,9 @@ TEST_CASE("Test overriding existing item", "[itemregistry]"){
     ItemRegistry::addItem(0, item2);
     /* registry->dumpRegistry(); */
     REQUIRE(0==0);
+
+    delete item1;
+    delete item2;
 }
 
 TEST_CASE("Test item copying", "[itemregistry]") {

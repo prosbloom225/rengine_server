@@ -4,6 +4,7 @@
 // BEFORE
 
 TEST_CASE("Test game constructor", "[game]") {
+    LOG(INFO) << "Test game constructor";
     Game game = Game();
     REQUIRE(&game != NULL);
 };
