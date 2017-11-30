@@ -11,6 +11,7 @@ class Game {
         static BaseMod mods[1];
 
     private:
+        unsigned int tick;
         void lifecycle();
 };
 
