@@ -11,8 +11,10 @@ class Game {
         static BaseMod mods[1];
 
     private:
+        signed int TIME_SCALER = 1;
         unsigned int tick;
         void lifecycle();
+        void loader();
 };
 
 

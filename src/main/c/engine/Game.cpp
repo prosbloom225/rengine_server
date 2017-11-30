@@ -41,11 +41,15 @@ void Game::lifecycle() {
     // main game loop
     while (true){
         tick++;
-        if (tick%100)
-            LOG(INFO)<<tick;
-        int a;
+        LOG(INFO) << tick%TIME_SCALER;
+        if (tick%TIME_SCALER == 0){
+            LOG(INFO)<<"TICK: " << tick;
+        }
+        char a;
         std::cin >> a;
-        std::cout << a;
+        // q
+        if (a == 113)
+            break;
 
         // sanity
         if (tick > 20)
