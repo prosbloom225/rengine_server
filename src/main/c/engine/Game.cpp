@@ -2,6 +2,7 @@
 
 BaseMod Game::mods[1];
 
+
 Game::Game() {
     // TODO - dynamic modloader
     // hardcoding mods for now
@@ -12,6 +13,10 @@ Game::Game() {
     // TODO - pregame menu/etc .. maybe move to main?
     // start the game loop
     lifecycle();
+
+
+    // clean up
+    ItemRegistry::clear();
 }
 void Game::lifecycle() {
     // preInit

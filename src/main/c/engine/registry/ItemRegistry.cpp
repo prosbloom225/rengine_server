@@ -4,6 +4,7 @@ using namespace std;
 
 std::map<int, Item*> ItemRegistry::items;
 
+
 int ItemRegistry::addItem(Item *item) {
     // get next available id
     return 0;
@@ -27,6 +28,10 @@ Item *ItemRegistry::getItem(int id) {
 
 void ItemRegistry::clear() {
     LOG(DEBUG) << "Clearing ItemRegistry";
+
+    for (auto x : ItemRegistry::items) {
+        delete x.second;
+    }
     ItemRegistry::items.clear();
 }
 void ItemRegistry::dumpRegistry() {
